@@ -52,7 +52,10 @@ async function getPhotos() {
 
 // Check to see if scrolling near bottom of page, Load More Photos
 window.addEventListener('scroll', () => {
-    console.log('scrolled');
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000){
+        getPhotos();
+        console.log('load more');
+    }
 })
 // On Load
 getPhotos();
